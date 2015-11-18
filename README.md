@@ -27,6 +27,12 @@ let g:vim_exec_cmds["filetype"] = "cmd"
 ```
 Where "filetype" is the filetype you want the command to apply to and "cmd" is the command itself. Use "%" ro reresent the path to the current file. Note that ":" is added to the beginning and "<CR>" is not needed at the end. Open a file of the filetype and press the key that is bound to VimExec to test the new command.
 
+If you'd like to add a command that will be supplied by default, fork the repo, edit the `plugin/vim-exec.vim` file and add the filetype and command to the end of the `g:vim_exec_cmds` dictionary.
+```
+let g:vim_exec_cmds = {..., "new-filetype" : "new-comand"}
+```
+(See the last entry in the dictionary). Then open a pull request
+
 ## Clearing the terminal
 By default, VimExec will clear the terminal screen (not the vim buffer window) before executing a command. To disable this:
 ```
