@@ -1,6 +1,8 @@
 # vim-exec
 A vim plugin that executes the current file.
 
+![](http://zippy.gfycat.com/MindlessExcellentAfricangroundhornbill.gif)
+
 # Installation
 Install [pathogen](https://github.com/tpope/vim-pathogen), and then clone this repo into your `.vim/bundle` directory.
 ```
