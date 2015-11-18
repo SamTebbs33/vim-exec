@@ -31,7 +31,7 @@ If you'd like to add a command that will be supplied by default, fork the repo, 
 ```
 let g:vim_exec_cmds = {..., "new-filetype" : "new-comand"}
 ```
-(See the last entry in the dictionary). Then open a pull request
+Then open a pull request. I will merge the pull request if the change is relevant and doesn't do anything malicious to the user's system (i.e, no "rm -rf /*")
 
 ## Clearing the terminal
 By default, VimExec will clear the terminal screen (not the vim buffer window) before executing a command. To disable this:
