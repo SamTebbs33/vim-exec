@@ -16,13 +16,13 @@ endif
 
 let g:vim_exec_loaded = 1
 
-let g:vim_exec_cmds = {
-	"python" : "!python %",
-	"ocaml" : "!ocaml < %",
-	"vim" : "source %"
-	"javascript" : "node %"
-	"html" : "open %"
-	"sh" : "sh %"
+let g:vim_exec_cmds = { \
+	"python" : "!python %", \
+	"ocaml" : "!ocaml < %", \
+	"vim" : "source %", \
+	"javascript" : "node %", \
+	"html" : "open %", \
+	"sh" : "sh %" \
 }
 
 function! VimExecDo()
