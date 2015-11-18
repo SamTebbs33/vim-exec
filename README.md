@@ -10,7 +10,7 @@ git clone https://github.com/SamTebbs33/vim-exec
 # Usage
 
 ## Key mapping
-The default key mapping is to `F12`, which can be changed by reassigning the `g:vim_exec_key` in your `.vimrc`.
+The default key mapping is to `F12`, which can be changed by reassigning `g:vim_exec_key` in your `.vimrc`.
 ```
 " Map to <leader>e
 let g:vim_exec_key = "<leader>e"
