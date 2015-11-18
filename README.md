@@ -34,9 +34,9 @@ let g:vim_exec_cmds = {..., "new-filetype" : "new-comand"}
 Then open a pull request. I will merge the pull request if the change is relevant and doesn't do anything malicious to the user's system (i.e, no `rm -rf /*`)
 
 ## Clearing the terminal
-By default, VimExec will clear the terminal screen (not the vim buffer window) before executing a command. To disable this:
+By default, VimExec will not clear the terminal screen (not the vim buffer window) before executing a command. To enable this:
 ```
-let g:vim_exec_clear = 0
+let g:vim_exec_clear = 1
 ```
 To change the command used to clear the screen (It is `clear` by default):
 ```
