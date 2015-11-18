@@ -30,4 +30,10 @@ function! VimExecDo()
 	endif
 endfunction
 
+function VimExecCmds()
+	for a in items(g:vim_exec_cmds)
+		echo a[0] . " : " . a[1]
+	endfor
+endfunction
+
 execute "nnoremap" g:vim_exec_key ":call VimExecDo()<CR>"
