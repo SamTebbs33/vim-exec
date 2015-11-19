@@ -63,4 +63,5 @@ let g:vim_clearcmd = "cls"
 * JavaScript
 * HTML
 * Bash script
+
 See the "Adding execution commands" section for info on adding more filetypes. More will be added to the default set when they are thought of.
