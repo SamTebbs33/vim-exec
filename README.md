@@ -11,22 +11,25 @@ A vim plugin that executes the current file.
   * <a href="#Clearing">Clearing the terminal</a>
 * <a href="#Filetypes">Default filetypes</a>
 
-<a id="Installation"># Installation
+<a id="Installation">Installation</a>
+=====================================
 Install [pathogen](https://github.com/tpope/vim-pathogen), and then clone this repo into your `.vim/bundle` directory.
 ```
 cd ~/.vim/bundle && git clone https://github.com/SamTebbs33/vim-exec
 ```
 
-<a id="Usage"># Usage
-
-<a id="Key">## Key mapping
+<a id="Usage">Usage</a>
+=======================
+<a id="Key">Key mapping</a>
+---------------------------
 The default key mapping is to `F12`, which can be changed by reassigning `g:vim_exec_key` in your `.vimrc`.
 ```
 " Map to <leader>e
 let g:vim_exec_key = "<leader>e"
 ```
 
-<a id="Commands">## Adding commands
+<a id="Commands">Adding commands</a>
+------------------------------------
 Some common commands are provided by default (run `:call VimExecCmds()` to see a list of those), but more can be added easily.
 The variable that stores the commands is called `g:vim_exec_cmds` and is a dictionary, where the key is the filetype and the value is the command to execute.
 To create a new command or override an existing one:
@@ -41,7 +44,8 @@ let g:vim_exec_cmds = {..., "new-filetype" : "new-comand"}
 ```
 Then open a pull request. I will merge the pull request if the change is relevant and doesn't do anything malicious to the user's system (i.e, no `rm -rf /*`)
 
-<a id="Clearing">## Clearing the terminal
+<a id="Clearing">Clearing the terminal</a>
+------------------------------------------
 By default, VimExec will not clear the terminal screen (not the vim buffer window) before executing a command. To enable this:
 ```
 let g:vim_exec_clear = 1
@@ -51,7 +55,8 @@ To change the command used to clear the screen (It is `clear` by default):
 let g:vim_clearcmd = "cls"
 ```
 
-<a id="Filetypes"># Default supported filetypes
+<a id="Filetypes">Default filetypes</a>
+======================================
 * Python
 * OCaml
 * VimScript
