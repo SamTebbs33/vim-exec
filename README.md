@@ -58,12 +58,12 @@ let g:vim_clearcmd = "cls"
 <a id="Filetypes">Default filetypes</a>
 ======================================
 Below is a list of the filetypes that are supported by default and their requirements (if there are any).
-* Python
-* OCaml
-* VimScript
-* JavaScript: Node.js
-* HTML
-* Bash script
-* Haskell: Ghci
+* **Python**
+* **OCaml**
+* **VimScript**
+* **JavaScript**: Node.js
+* **HTML**
+* **Bash script**
+* **Haskell**: Ghci
 
 See the "Adding execution commands" section for info on adding more filetypes. More will be added to the default set when they are thought of.
