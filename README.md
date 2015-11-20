@@ -9,6 +9,7 @@ A vim plugin that executes the current file.
   * <a href="#Key">Key mapping</a>
   * <a href="#Commands">Adding commands</a>
   * <a href="#Clearing">Clearing the terminal</a>
+  * <a href="#Vimux">Vimux/tmux support</a>
 * <a href="#Filetypes">Default filetypes</a>
 
 <a id="Installation">Installation</a>
@@ -54,6 +55,14 @@ To change the command used to clear the screen (It is `clear` by default):
 ```
 let g:vim_clearcmd = "cls"
 ```
+
+<a id="Vimux">Vimux/tmux support</a>
+------------------------------------
+vim-exec can output to a tmux pane rather than the default terminal if [vimux](https://github.com/benmills/vimux) is installed. To enable this:
+```
+let g:vim_exec_vimux = 1
+```
+You must be runnign an instance of tmux in order for this to work.
 
 <a id="Filetypes">Default filetypes</a>
 ======================================
