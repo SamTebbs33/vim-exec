@@ -14,6 +14,10 @@ if !exists("g:vim_exec_clear")
 	let g:vim_exec_clear = 0
 endif
 
+if !exists("g:vim_exec_vimux")
+	let g:vim_exec_vimux = 0
+endif
+
 let g:vim_exec_loaded = 1
 
 let g:vim_exec_cmds = {"python" : "!python %", "ocaml" : "!ocaml < %", "vim" : "source %", "javascript" : "!node %", "html" : "!open %", "sh" : "!sh %", "haskell" : "!ghci < %"}
@@ -21,10 +25,21 @@ let g:vim_exec_cmds = {"python" : "!python %", "ocaml" : "!ocaml < %", "vim" : "
 function! VimExecDo()
 	if has_key(g:vim_exec_cmds, &ft)
 		execute ":w!"
-		if g:vim_exec_clear
-			execute "silent " . "!" . g:vim_exec_clearcmd
+		if g:vim_exec_vimux
+			if g:vim_exec_clear
+				execute ":VimuxRunCommand(\"" . g:vim_exec_clearcmd . "\")"
+			endif
+			let cmd = g:vim_exec_cmds[&ft]
+			if cmd =~ "^!"
+				let cmd = cmd[1:]
+			endif
+			execute ":VimuxRunCommand(\"" . substitute(cmd, "%", @%, "") . "\")"
+		else
+			if g:vim_exec_clear
+				execute "silent " . "!" . g:vim_exec_clearcmd
+			endif
+			execute g:vim_exec_cmds[&ft]
 		endif
-		execute g:vim_exec_cmds[&ft]
 	else
 		echom "No mapping found for filetype: " . &ft
 	endif
