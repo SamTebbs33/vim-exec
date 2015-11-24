@@ -20,7 +20,9 @@ endif
 
 let g:vim_exec_loaded = 1
 
-let g:vim_exec_cmds = {"python" : "!python %", "ocaml" : "!ocaml < %", "vim" : "source %", "javascript" : "!node %", "html" : "!open %", "sh" : "!sh %", "haskell" : "!ghci < %"}
+au BufNewFile,BufRead *.proof set filetype=yup
+
+let g:vim_exec_cmds = {"yup" : "!yup %", "python" : "!python %", "ocaml" : "!ocaml < %", "vim" : "source %", "javascript" : "!node %", "html" : "!open %", "sh" : "!sh %", "haskell" : "!ghci < %"}
 
 function! VimExecDo()
 	if has_key(g:vim_exec_cmds, &ft)
