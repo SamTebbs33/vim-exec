@@ -53,4 +53,8 @@ function VimExecCmds()
 	endfor
 endfunction
 
-execute "nnoremap" g:vim_exec_key ":call VimExecDo()<CR>"
+function! VimExecMap()
+	execute "nnoremap" g:vim_exec_key ":call VimExecDo()<CR>"
+endfunction
+
+call VimExecMap()
