@@ -23,10 +23,11 @@ cd ~/.vim/bundle && git clone https://github.com/SamTebbs33/vim-exec
 =======================
 <a id="Key">Key mapping</a>
 ---------------------------
-The default key mapping is to `F12`, which can be changed by reassigning `g:vim_exec_key` in your `.vimrc`.
+The default key mapping is to `F12`, which can be changed by reassigning `g:vim_exec_key` in your `.vimrc` and then calling `VimExecMap()`.
 ```
 " Map to <leader>e
 let g:vim_exec_key = "<leader>e"
+call VimExecMap()
 ```
 
 <a id="Commands">Adding commands</a>
