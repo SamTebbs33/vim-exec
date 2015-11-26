@@ -27,6 +27,7 @@ let g:vim_exec_cmds = {"yup" : "!yup %", "python" : "!python %", "ocaml" : "!oca
 function! VimExecDo()
 	if has_key(g:vim_exec_cmds, &ft)
 		execute ":w!"
+		let file = substitute(@%, " ", "\ ", "")
 		if g:vim_exec_vimux
 			if g:vim_exec_clear
 				execute ":VimuxRunCommand(\"" . g:vim_exec_clearcmd . "\")"
@@ -35,12 +36,12 @@ function! VimExecDo()
 			if cmd =~ "^!"
 				let cmd = cmd[1:]
 			endif
-			execute ":VimuxRunCommand(\"" . substitute(cmd, "%", @%, "") . "\")"
+			execute ":VimuxRunCommand(\"" . substitute(cmd, "%", file, "") . "\")"
 		else
 			if g:vim_exec_clear
 				execute "silent " . "!" . g:vim_exec_clearcmd
 			endif
-			execute g:vim_exec_cmds[&ft]
+			execute substitute(g:vim_exec_cmds[&ft], "%", file, "")
 		endif
 	else
 		echom "No mapping found for filetype: " . &ft
