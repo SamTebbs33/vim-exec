@@ -31,9 +31,12 @@ let g:vim_exec_cmds = {
 \	"java" : ["!javac %", "!java %:r"]
 \ }
 
+au BufNewFile,BufRead *.proof set filetype=yup
+
 function! VimExecDo()
 	if has_key(g:vim_exec_cmds, &ft)
 		execute ":w!"
+		let file = substitute(@%, " ", "\ ", "")
 		if g:vim_exec_vimux
 			if g:vim_exec_clear
 				execute ":VimuxRunCommand(\"" . g:vim_exec_clearcmd . "\")"
@@ -64,4 +67,8 @@ function! VimExecCmds()
 	endfor
 endfunction
 
-execute "nnoremap" g:vim_exec_key ":call VimExecDo()<CR>"
+function! VimExecMap()
+	execute "nnoremap" g:vim_exec_key ":call VimExecDo()<CR>"
+endfunction
+
+call VimExecMap()
