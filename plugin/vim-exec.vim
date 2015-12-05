@@ -20,7 +20,16 @@ endif
 
 let g:vim_exec_loaded = 1
 
-let g:vim_exec_cmds = {"python" : "!python %", "ocaml" : "!ocaml < %", "vim" : "source %", "javascript" : "!node %", "html" : "!open %", "sh" : "!sh %", "haskell" : "!ghci < %"}
+let g:vim_exec_cmds = {
+\	"python" : ["!python %"],
+\	"ocaml" : ["!ocaml < %"],
+\	"vim" : ["source %"],
+\	"javascript" : ["!node %"],
+\	"html" : ["!open %"], 
+\	"sh" : ["!sh %"],
+\	"haskell" : ["!ghci < %"],
+\	"java" : ["!javac %", "!java %:r"]
+\ }
 
 function! VimExecDo()
 	if has_key(g:vim_exec_cmds, &ft)
@@ -29,23 +38,27 @@ function! VimExecDo()
 			if g:vim_exec_clear
 				execute ":VimuxRunCommand(\"" . g:vim_exec_clearcmd . "\")"
 			endif
-			let cmd = g:vim_exec_cmds[&ft]
-			if cmd =~ "^!"
-				let cmd = cmd[1:]
-			endif
-			execute ":VimuxRunCommand(\"" . substitute(cmd, "%", @%, "") . "\")"
+			for cmd in g:vim_exec_cmds[&ft]
+				if cmd =~ "^!"
+					let cmd = cmd[1:]
+				endif
+				let cmd = substitute(cmd, "%:r", @%:r, "")
+				execute ":VimuxRunCommand(\"" . substitute(cmd, "%", @%, "") . "\")"
+			endfor
 		else
 			if g:vim_exec_clear
 				execute "silent " . "!" . g:vim_exec_clearcmd
 			endif
-			execute g:vim_exec_cmds[&ft]
+			for cmd in g:vim_exec_cmds[&ft]
+				execute cmd
+			endfor
 		endif
 	else
 		echom "No mapping found for filetype: " . &ft
 	endif
 endfunction
 
-function VimExecCmds()
+function! VimExecCmds()
 	for a in items(g:vim_exec_cmds)
 		echo a[0] . " : " . a[1]
 	endfor
