@@ -38,7 +38,7 @@ To create a new command or override an existing one:
 ```
 let g:vim_exec_cmds["filetype"] = "cmd"
 ```
-Where "filetype" is the filetype you want the command to apply to and "cmd" is the command itself. Use `%` ro reresent the path to the current file. Note that `:` is added to the beginning and `<CR>` is not needed at the end. Open a file of the filetype and press the key that is bound to VimExec to test the new command.
+Where "filetype" is the filetype you want the command to apply to and "cmd" is the command itself. Use `%` to represent the path to the current file. Note that `:` is added to the beginning and `<CR>` is not needed at the end. Open a file of the filetype and press the key that is bound to VimExec to test the new command.
 
 If you'd like to add a command that will be supplied by default, fork the repo, edit the `plugin/vim-exec.vim` file and add the filetype and command to the end of the `g:vim_exec_cmds` dictionary.
 ```
@@ -54,7 +54,7 @@ let g:vim_exec_clear = 1
 ```
 To change the command used to clear the screen (It is `clear` by default):
 ```
-let g:vim_clearcmd = "cls"
+let g:vim_exec_clearcmd = "cls"
 ```
 
 <a id="Vimux">Vimux/tmux support</a>
